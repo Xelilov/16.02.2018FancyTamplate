@@ -1,0 +1,179 @@
+﻿@model Fancy_Template.Models.ViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<!--================Creative Feature Area =================-->
+<section class="creative_feature_area">
+    <div class="container">
+        <div class="c_feature_box">
+            <div class="row">
+                @foreach (var feature_item in Model._feature_boxs)
+                {
+                    <div class="col-lg-4">
+                        <div class="c_box_item">
+                            <a href="@feature_item.feature_boxes_url"><h4><i class="@feature_item.feature_boxes_icon" aria-hidden="true"></i>  @feature_item.feature_boxes_title</h4></a>
+                            <p>@feature_item.feature_boxes_content</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="digital_feature p_100">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="d_feature_text">
+                        <div class="main_title">
+                            <h2>@Model._blog[Model._blog.Count - 1].blog_title</h2>
+                        </div>
+                        <p>@Model._blog[Model._blog.Count - 1].blog_content</p>
+
+                        <a class="read_btn" href="#">Read more</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="d_feature_img">
+                        <img src="~/Uploads/@Model._blog[Model._blog.Count-1].blog_img" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Creative Feature Area =================-->
+<!--================Industries Area =================-->
+<section class="industries_area">
+    <div class="left_indus">
+        <div class="indus_img">
+            <img src="~/Uploads/@Model._industry[Model._industry.Count-1].industries_img" alt="" width="100%">
+        </div>
+    </div>
+    <div class="right_indus">
+        <div class="indus_text">
+            <div class="main_title">
+                <h2>@Model._industry[Model._industry.Count - 1].industries_title</h2>
+                <p>@Model._industry[Model._industry.Count - 1].industries_content</p>
+            </div>
+            <div class="our_skill_inner">
+                <div class="single_skill">
+                    <h3>Website Design</h3>
+                    <div class="progress" data-value="90">
+                        <div class="progress-bar">
+                            <div class="progress_parcent"><span class="counter">90</span>%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="single_skill">
+                    <h3>Brand Strategy</h3>
+                    <div class="progress" data-value="95">
+                        <div class="progress-bar">
+                            <div class="progress_parcent"><span class="counter">95</span>%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="single_skill">
+                    <h3>Digital Marketing</h3>
+                    <div class="progress" data-value="85">
+                        <div class="progress-bar">
+                            <div class="progress_parcent"><span class="counter">85</span>%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="single_skill">
+                    <h3>Website Development</h3>
+                    <div class="progress" data-value="90">
+                        <div class="progress-bar">
+                            <div class="progress_parcent"><span class="counter">90</span>%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="read_btn" href="@Model._industry[Model._industry.Count-1].industries_url">Work with us</a>
+        </div>
+    </div>
+</section>
+<!--================End Industries Area =================-->
+<!--================Our Service Area =================-->
+<section class="service_area" style="background: url(../../Uploads/@Model._service_area[0].service_img) no-repeat fixed center center;">
+    <div class="container">
+        <div class="center_title">
+            <h2>@Model._service_area[0].service_title</h2>
+            <p>@Model._service_area[0].service_content</p>
+        </div>
+        <div class="row service_item_inner">
+            @foreach (var sevice_item in Model._service_content)
+            {
+                <div class="col-lg-4">
+                    <div class="service_item">
+                        <i style="font-size:40px; color:skyblue" class="@sevice_item.service_contents_icon"></i>
+                        <h4>@sevice_item.service_contents_title</h4>
+                        <p>@sevice_item.service_contents_content</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<!--================End Our Service Area =================-->
+<!--================Testimonials Area =================-->
+<section class="testimonials_area p_100">
+    <div class="container">
+        <div class="testimonials_slider owl-carousel">
+            @foreach (var test_item in Model._test_slider)
+            {
+                <div class="item">
+                    <div class="media">
+                        <img class="d-flex rounded-circle" src="~/Uploads/@test_item.testimonials_slider_img" alt="">
+                        <div class="media-body">
+                            <i style="font-size:50px;" class="@test_item.testimonials_slider_icon"></i>
+                            <p>@test_item.testimonials_slider_content</p>
+                            <h4><a href="#">@test_item.testimonials_slider_author</a> - @test_item.testimonials_slider_position</h4>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<!--================End Testimonials Area =================-->
+<!--================Project Area =================-->
+<section class="project_area" style="background:url(../../Uploads/@Model._service_area[1].service_img) no-repeat fixed center center">
+    <div class="container">
+        <div class="project_inner">
+            <div class="center_title">
+                <h2>@Model._service_area[1].service_title</h2>
+                <p>@Model._service_area[1].service_content</p>
+            </div>
+            <a class="tp_btn" href="@Model._service_area[1].service_content_url">WORK WITH US</a>
+        </div>
+    </div>
+</section>
+<!--================End Project Area =================-->
+<!--================Latest News Area =================-->
+<section class="latest_news_area p_100">
+    <div class="container">
+        <div class="b_center_title">
+            <h2>Latest News</h2>
+            <p>We Are A Creative Digital Agency. Focused on Growing Brands Online</p>
+        </div>
+        <div class="l_news_inner">
+            <div class="row">
+                @foreach (var news_item in Model._blog.Take(3))
+                {
+                       <div class="col-lg-4 col-md-6">
+                            <div class="l_news_item">
+                                <div class="l_news_img"><a href="#"><img class="img-fluid" src="@news_item.blog_img" alt=""></a></div>
+                                <div class="l_news_content">
+                                    <a href="#"><h4>@news_item.blog_title</h4></a>
+                                    <p>@news_item.blog_content</p>
+                                    <a class="more_btn" href="#">Learn More</a>
+                                </div>
+                            </div>
+                       </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Latest News Area =================-->

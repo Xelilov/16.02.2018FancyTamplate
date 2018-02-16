@@ -1,0 +1,98 @@
+﻿@model Fancy_Template.Models.ViewModel
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <!--================Static Area =================-->
+    <section class="static_area">
+        <div class="container">
+            <div class="static_inner">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <div class="static_main_content">
+                            <div class="static_social">
+                                <ul>
+                                    <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-google-plus-square"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fas fa-thumbtack" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            @foreach (var b_item in Model._blog.Take(2))
+                            {
+                                <div class="static_img">
+                                    <img class="img-fluid" src="~/Uploads/@b_item.blog_img" alt="">
+                                </div>
+                                <div class="static_text">
+                                    <h3>@b_item.blog_title</h3>
+                                    <p>@b_item.blog_content</p>
+                                </div> 
+                            }                                                       
+                            <div class="media">
+                                <div class="d-flex">
+                                    <h6>“</h6>
+                                </div>
+                                <div class="media-body">
+                                    <p>@Model._test_slider[Model._test_slider.Count-1].testimonials_slider_content</p>
+                                    <h5><a href="#">@Model._test_slider[Model._test_slider.Count-1].testimonials_slider_author</a> - @Model._test_slider[Model._test_slider.Count - 1].testimonials_slider_position</h5>
+                                </div>
+                            </div>
+                            <div class="static_img">
+                                    <img class="img-fluid" src="~/Uploads/@Model._blog[Model._blog.Count-1].blog_img" alt="">
+                            </div>
+                            <div class="static_text2">
+                                <h3>@Model._blog[Model._blog.Count-1].blog_title</h3>
+                                <p>@Model._blog[Model._blog.Count-1].blog_content</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="right_sidebar_area">
+                            <aside class="right_widget r_news_widget">
+                                <div class="r_w_title">
+                                    <h3>Recent News</h3>
+                                </div>
+                                @foreach (var blog_item in Model._blog.Take(4))
+                                {
+                                    <div class="news_inner">
+                                        <div class="news_item">
+                                            <a href="#"><h4>@blog_item.blog_title</h4></a>
+                                            <a href="#"><h6>October 7, 2017</h6></a>
+                                        </div>                                        
+                                    </div>
+                                }                               
+                            </aside>
+                            <aside class="right_widget r_cat_widget">
+                                <div class="r_w_title">
+                                    <h3>Categories</h3>
+                                </div>
+                                @foreach (var cate_item in Model._category)
+                                {
+                                    <ul>
+                                        <li><a href="#">@cate_item.category_name</a></li>
+                                    </ul>
+                                }
+                                
+                            </aside>
+                            <aside class="right_widget r_tag_widget">
+                                <div class="r_w_title">
+                                    <h3>Popular Tags</h3>
+                                </div>
+                                <ul>
+                                    <li><a href="#">Creative</a></li>
+                                    <li><a href="#">Unique</a></li>
+                                    <li><a href="#">Photography</a></li>
+                                    <li><a href="#">Music</a></li>
+                                    <li><a href="#">Wordpress Template</a></li>
+                                    <li><a href="#">Ideas</a></li>
+                                </ul>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Static Area =================-->
